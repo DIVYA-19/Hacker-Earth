@@ -24,7 +24,7 @@ int main()
 	}
 	if(mem.size() == mem2.size()){
 		for(int i=0;i<mem.size()-1;i++){
-			cout << mem[i+1] << mem2[i] << endl;
+			//cout << mem[i+1] << mem2[i] << endl;
 			count = count * (mem[i+1] - mem2[i]);
 		}
 		cout << count;
