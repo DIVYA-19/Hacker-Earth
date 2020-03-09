@@ -12,8 +12,7 @@ for i in range(n):
         else:
             mem2.append(i)
         check += 1
-print(mem)
-print(mem2)
+
 if len(mem) == len(mem2):
     for i in range(0,len(mem)-1):
         if mem[i+1] - mem2[i] != 1:
