@@ -22,18 +22,19 @@ int main()
 }
 
 void usingBinarySearch(){
-	const long long oo 1e6;
+	const long long oo = 1e6;
 	set <long long> powers;
+	
 	int n,p;
-	cin >> n>>p;
-	for (long long val= power;p<oo;val*p){
+	cin >> n >> p;
+	for (long long val= p;p<oo;val*=p){
 		powers.insert(val);
 	}
-	long long cost = 0
+	long long cost = 0;
 	for(int i=1; i<=n;i++){
 		int x;
 		cin >> x;
-		auto it = upper_bound(powers.begin(), powers.end()), x-1);
+		auto it = upper_bound(powers.begin(), powers.end(), x-1);
 		
 		cost += *it;
 	}
