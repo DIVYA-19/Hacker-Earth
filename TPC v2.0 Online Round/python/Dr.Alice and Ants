@@ -1,0 +1,37 @@
+'''
+Multi-source BFS is used
+cells containing sugar are taken as sources ( having value 1)
+and updated it's neighbours distance and pushed to queue
+'''
+n,m = map(int, input().split())
+
+grid = []
+
+distance = [[-1]*m for _ in range(n)]
+
+for i in range(n):
+    grid.append(list(map(int, input().split())))
+
+q = []
+
+for i in range(n):
+    for j in range(m):
+        if grid[i][j] == 1:
+            q.append([i,j])
+            distance[i][j] = 0
+x_neighbours = [-1,0,0,1]
+y_neighbours = [0,1,-1,0]
+
+while(q):
+    x,y = q[0]
+    del q[0]
+    for i in range(len(x_neighbours)):
+        new_x = x + x_neighbours[i]
+        new_y = y + y_neighbours[i]
+
+        if 0<=new_x<n and 0<=new_y<m and distance[new_x][new_y] == -1:
+            distance[new_x][new_y] = 1 + distance[x][y]
+
+            q.append([new_x,new_y])
+for i in distance:
+    print(*i, sep=' ')
